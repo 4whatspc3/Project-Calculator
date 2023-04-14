@@ -28,3 +28,18 @@ let multiply = (...args) => {
 
     return multi;
 };
+
+let divide = (a, b, ...args) => {
+    let result = a / b;
+    
+    if (args.length > 0){
+        const part = args.reduce((total, currentNumber) => {
+            return total /= currentNumber;
+        }, result);
+
+        return part;
+
+    } else {
+        return result;
+    }
+};
