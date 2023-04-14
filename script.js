@@ -20,3 +20,11 @@ let subtract = (a, b, ...args) => {
         return result;
     }
 };
+
+let multiply = (...args) => {
+    const multi = args.reduce((total, currentNumber) => {
+        return total *= currentNumber;
+    }, 1);
+
+    return multi;
+};
