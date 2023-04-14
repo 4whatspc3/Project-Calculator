@@ -57,3 +57,30 @@ let divide = (a, b, ...args) => {
         return result;
     }
 };
+
+let a,
+    b,
+    operator,
+    args = [];
+
+let operate = () => {
+    operator = prompt("Enter an operator: +, -, / ou *");
+    a = Number(prompt("Enter the first number"));
+    b = Number(prompt("Enter the second number"));
+
+    if (operator === '+'){
+        return add(a, b, ...args);
+    }
+
+    if (operator === '-'){
+        return subtract(a, b, ...args);
+    }
+
+    if (operator === '*'){
+        return multiply(a, b, ...args);
+    }
+
+    if (operator === '/'){
+        return divide(a, b, ...args);
+    }
+};
