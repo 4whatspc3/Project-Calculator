@@ -84,3 +84,60 @@ let operate = () => {
         return divide(a, b, ...args);
     }
 };
+
+let getTheNumbers = (number) => {
+    
+    const display = document.querySelector('.display');
+
+    display.textContent = `${number} `;
+
+    return display;
+};
+
+const btn = document.querySelectorAll('.buttons.numbers');
+
+btn.forEach(button => {
+    
+    button.addEventListener('click', (e) => {
+        
+        if(e.target.matches('.0')){
+
+        }
+
+        if(e.target.matches('.1')){
+            
+        }
+
+        if(e.target.matches('.2')){
+            
+        }
+
+        if(e.target.matches('.3')){
+            
+        }
+
+        if(e.target.matches('.4')){
+            
+        }
+
+        if(e.target.matches('.5')){
+            
+        }
+
+        if(e.target.matches('.6')){
+            
+        }
+
+        if(e.target.matches('.7')){
+            
+        }
+
+        if(e.target.matches('.8')){
+            
+        }
+
+        if(e.target.matches('.9')){
+            
+        }
+    });
+});
