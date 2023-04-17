@@ -90,9 +90,15 @@ let getTheNumbers = (number) => {
     
     const display = document.querySelector('.display');
 
-    display.textContent = `${number} `;
+    display.setAttribute('style', `display: flex;
+                                   margin:0;
+                                   padding: 0;`);
 
-    return display;
+    const content = document.createElement('div');
+  
+    content.textContent = `${number} `;
+
+    return display.appendChild(content);
 };
 
 const btn = document.querySelectorAll('div.numbers');
