@@ -61,6 +61,7 @@ let divide = (a, b, ...args) => {
 let a,
     b,
     operator,
+    number,
     args = [];
 
 let operate = () => {
@@ -94,50 +95,52 @@ let getTheNumbers = (number) => {
     return display;
 };
 
-const btn = document.querySelectorAll('.buttons.numbers');
+const btn = document.querySelectorAll('div.numbers');
 
 btn.forEach(button => {
     
     button.addEventListener('click', (e) => {
         
-        if(e.target.matches('.0')){
-
+        if(e.target.matches('.zero')){
+            number = 0;
         }
 
-        if(e.target.matches('.1')){
-            
+        if(e.target.matches('.one')){
+            number = 1;
         }
 
-        if(e.target.matches('.2')){
-            
+        if(e.target.matches('.two')){
+            number = 2;
         }
 
-        if(e.target.matches('.3')){
-            
+        if(e.target.matches('.three')){
+            number = 3;
         }
 
-        if(e.target.matches('.4')){
-            
+        if(e.target.matches('.four')){
+            number = 4;
         }
 
-        if(e.target.matches('.5')){
-            
+        if(e.target.matches('.five')){
+            number = 5;
         }
 
-        if(e.target.matches('.6')){
-            
+        if(e.target.matches('.six')){
+            number = 6;
         }
 
-        if(e.target.matches('.7')){
-            
+        if(e.target.matches('.seven')){
+            number = 7;
         }
 
-        if(e.target.matches('.8')){
-            
+        if(e.target.matches('.eight')){
+            number = 8;
         }
 
-        if(e.target.matches('.9')){
-            
+        if(e.target.matches('.nine')){
+            number = 9;
         }
+
+        getTheNumbers(number);
     });
 });
