@@ -60,30 +60,42 @@ let divide = (a, b, ...args) => {
 
 let a,
     b,
+    result,
+    whereOperator,
     operator,
     number,
-    args = [];
+    args = [],
+    listOfItems = [];
 
 let operate = () => {
-    operator = prompt("Enter an operator: +, -, / ou *");
-    a = Number(prompt("Enter the first number"));
-    b = Number(prompt("Enter the second number"));
+    a = convertTheList(listOfItems).firstNumber,
+    b = convertTheList(listOfItems).secondNumber;
 
     if (operator === '+'){
-        return add(a, b, ...args);
+        result = add(a, b, ...args);
     }
 
     if (operator === '-'){
-        return subtract(a, b, ...args);
+        result = subtract(a, b, ...args);
     }
 
     if (operator === '*'){
-        return multiply(a, b, ...args);
+        result = multiply(a, b, ...args);
     }
 
     if (operator === '/'){
-        return divide(a, b, ...args);
+        result = divide(a, b, ...args);
     }
+
+    const display = document.querySelector('.display');
+
+    display.setAttribute('style', `display: flex;
+                                   margin:0;
+                                   padding: 0;`);
+
+    display.textContent = `${result} `;
+
+    return display;
 };
 
 let getTheNumbers = (number) => {
@@ -99,6 +111,30 @@ let getTheNumbers = (number) => {
     content.textContent = `${number} `;
 
     return display.appendChild(content);
+};
+
+let getTheOperator = (operator) => {
+    
+    const display = document.querySelector('.display');
+
+    display.setAttribute('style', `display: flex;
+                                   margin:0;
+                                   padding: 0;`);
+
+    const content = document.createElement('div');
+  
+    content.textContent = `${operator} `;
+
+    return display.appendChild(content);
+};
+
+let convertTheList = (listOfItems) => {
+    whereOperator = listOfItems.indexOf(operator);
+
+    return {
+        firstNumber : Number(listOfItems.slice(0, whereOperator).join('')),
+        secondNumber: Number(listOfItems.slice(whereOperator + 1, listOfItems.length).join('')),
+    };
 };
 
 const btn01 = document.querySelectorAll('.numbers button');
@@ -148,6 +184,10 @@ btn01.forEach(button => {
         }
 
         getTheNumbers(number);
+
+        listOfItems.push(number);
+
+        console.log(listOfItems);
         
     });
 });
@@ -160,25 +200,18 @@ btn02.forEach(button => {
         
         if(e.target.matches('.divide')){
             operator = '/';
-            console.log(operator)
         }
 
         if(e.target.matches('.multiply')){
             operator = '*';
-            console.log(operator)
-
         }
 
         if(e.target.matches('.subtract')){
             operator = '-';
-            console.log(operator)
-
         }
 
         if(e.target.matches('.addition')){
             operator = '+';
-            console.log(operator)
-
         }
 
         if(e.target.matches('.AC')){
@@ -189,8 +222,16 @@ btn02.forEach(button => {
 
         if(e.target.matches('.equals')){
             operate();
-            console.log("almost there")
-
+            operator = false;
         }
+
+        if (operator !== false){
+            getTheOperator(operator);
+
+            listOfItems.push(operator);
+
+            console.log(listOfItems);
+        }
+
     });
 });
