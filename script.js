@@ -101,9 +101,9 @@ let getTheNumbers = (number) => {
     return display.appendChild(content);
 };
 
-const btn = document.querySelectorAll('div.numbers');
+const btn01 = document.querySelectorAll('.numbers button');
 
-btn.forEach(button => {
+btn01.forEach(button => {
     
     button.addEventListener('click', (e) => {
         
@@ -148,5 +148,49 @@ btn.forEach(button => {
         }
 
         getTheNumbers(number);
+        
+    });
+});
+
+const btn02 = document.querySelectorAll('.operators button');
+
+btn02.forEach(button => {
+    
+    button.addEventListener('click', (e) => {
+        
+        if(e.target.matches('.divide')){
+            operator = '/';
+            console.log(operator)
+        }
+
+        if(e.target.matches('.multiply')){
+            operator = '*';
+            console.log(operator)
+
+        }
+
+        if(e.target.matches('.subtract')){
+            operator = '-';
+            console.log(operator)
+
+        }
+
+        if(e.target.matches('.addition')){
+            operator = '+';
+            console.log(operator)
+
+        }
+
+        if(e.target.matches('.AC')){
+            //clear all
+            console.log("clear all")
+
+        }
+
+        if(e.target.matches('.equals')){
+            operate();
+            console.log("almost there")
+
+        }
     });
 });
