@@ -64,11 +64,17 @@ let a,
     whereOperator,
     operator,
     number,
+    displayOn,
     args = [],
     listOfItems = [];
 
 let operate = () => {
-    a = convertTheList(listOfItems).firstNumber,
+    if(result !== undefined){
+        a = result;
+    } else {
+        a = convertTheList(listOfItems).firstNumber;
+    }
+    
     b = convertTheList(listOfItems).secondNumber;
 
     if (operator === '+'){
@@ -86,6 +92,9 @@ let operate = () => {
     if (operator === '/'){
         result = divide(a, b, ...args);
     }
+
+    listOfItems = [];
+    displayOn = true;
 
     const display = document.querySelector('.display');
 
@@ -113,21 +122,6 @@ let getTheNumbers = (number) => {
     return display.appendChild(content);
 };
 
-let getTheOperator = (operator) => {
-    
-    const display = document.querySelector('.display');
-
-    display.setAttribute('style', `display: flex;
-                                   margin:0;
-                                   padding: 0;`);
-
-    const content = document.createElement('div');
-  
-    content.textContent = `${operator} `;
-
-    return display.appendChild(content);
-};
-
 let convertTheList = (listOfItems) => {
     whereOperator = listOfItems.indexOf(operator);
 
@@ -137,12 +131,23 @@ let convertTheList = (listOfItems) => {
     };
 };
 
+function empty(element) {
+    element.replaceChildren(); 
+}
+
 const btn01 = document.querySelectorAll('.numbers button');
 
 btn01.forEach(button => {
-    
+
     button.addEventListener('click', (e) => {
-        
+        if(displayOn == true){
+            const display = document.querySelector('.display');
+
+            empty(display);
+
+            displayOn = false;
+        }
+
         if(e.target.matches('.zero')){
             number = 0;
         }
@@ -198,6 +203,10 @@ btn02.forEach(button => {
     
     button.addEventListener('click', (e) => {
         
+        if(listOfItems.includes(operator)){            
+            operate();
+        } 
+
         if(e.target.matches('.divide')){
             operator = '/';
         }
@@ -226,11 +235,16 @@ btn02.forEach(button => {
         }
 
         if (operator !== false){
-            getTheOperator(operator);
-
+            
             listOfItems.push(operator);
 
             console.log(listOfItems);
+
+            if(displayOn !== true){
+                const display = document.querySelector('.display');
+
+                empty(display);
+            } 
         }
 
     });
