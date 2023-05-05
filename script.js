@@ -225,6 +225,22 @@ btn02.forEach(button => {
 
         if(e.target.matches('.AC')){
             //clear all
+            a = undefined;
+
+            b = undefined;
+
+            result = undefined;
+
+            displayOn = false;
+
+            listOfItems = [];
+
+            operator = false;
+
+            const display = document.querySelector('.display');
+
+            empty(display);
+
             console.log("clear all")
 
         }
