@@ -1,61 +1,17 @@
-let add = (a, b, ...args) => {
-    let result = a + b;
-    
-    if (args.length > 0){
-        const sum = args.reduce((total, currentNumber) => {
-            return total += currentNumber;
-        }, result);
-
-        return sum;
-
-    } else {
-        return result;
-    }
+let add = (a, b) => {
+    return result = a + b;
 };
 
-let subtract = (a, b, ...args) => {
-    let result = a - b;
-    
-    if (args.length > 0){
-        const sub = args.reduce((total, currentNumber) => {
-            return total -= currentNumber;
-        }, result);
-
-        return sub;
-
-    } else {
-        return result;
-    }
+let subtract = (a, b) => {
+    return result = a - b;
 };
 
-let multiply = (a, b, ...args) => {
-    let result = a * b;
-
-    if (args.length > 0){
-        const multi = args.reduce((total, currentNumber) => {
-            return total *= currentNumber;
-        }, result);
-
-        return multi;
-
-    } else {
-        return result;
-    }
+let multiply = (a, b) => {
+    return result = a * b;
 };
 
-let divide = (a, b, ...args) => {
-    let result = a / b;
-    
-    if (args.length > 0){
-        const part = args.reduce((total, currentNumber) => {
-            return total /= currentNumber;
-        }, result);
-
-        return part;
-
-    } else {
-        return result;
-    }
+let divide = (a, b) => {
+    return result = a / b;
 };
 
 let a,
@@ -78,19 +34,19 @@ let operate = () => {
     b = convertTheList(listOfItems).secondNumber;
 
     if (operator === '+'){
-        result = add(a, b, ...args);
+        result = add(a, b);
     }
 
     if (operator === '-'){
-        result = subtract(a, b, ...args);
+        result = subtract(a, b);
     }
 
     if (operator === '*'){
-        result = multiply(a, b, ...args);
+        result = multiply(a, b);
     }
 
     if (operator === '/'){
-        result = divide(a, b, ...args);
+        result = divide(a, b);
     }
 
     listOfItems = [];
