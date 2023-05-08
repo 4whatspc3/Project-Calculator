@@ -1,12 +1,12 @@
 let a,
     b,
     result,
-    whereOperator,
     operator,
     number,
     displayOn,
     args = [],
-    listOfItems = [];
+    listA = [],
+    listB = [];
 
 let add = (a, b) => {
     return a + b;
@@ -24,7 +24,7 @@ let divide = (a, b) => {
     return a / b;
 };
 
-let ShowTheNumbers = (number) => {
+let showTheNumbers = (number) => {
     
     const display = document.querySelector('.display');
 
@@ -39,13 +39,12 @@ let ShowTheNumbers = (number) => {
     return display.appendChild(content);
 };
 
-let convertTheList = (listOfItems) => {
-    whereOperator = listOfItems.indexOf(operator);
+let numberA = (listA) => {
+    return Number(listA.join(''));
+};
 
-    return {
-        firstNumber : Number(listOfItems.slice(0, whereOperator).join('')),
-        secondNumber: Number(listOfItems.slice(whereOperator + 1, listOfItems.length).join('')),
-    };
+let numberB = (listB) => {
+    return Number(listB.join(''));
 };
 
 function empty(element) {
@@ -56,10 +55,10 @@ let operate = () => {
     if(result !== undefined){
         a = result;
     } else {
-        a = convertTheList(listOfItems).firstNumber;
+        a = numberA(listA);
     }
     
-    b = convertTheList(listOfItems).secondNumber;
+    b = numberB(listB);
 
     if (operator === '+'){
         result = add(a, b);
@@ -77,7 +76,6 @@ let operate = () => {
         result = divide(a, b);
     }
 
-    listOfItems = [];
     displayOn = true;
 
     const display = document.querySelector('.display');
@@ -101,7 +99,9 @@ btn01.forEach(button => {
 
             empty(display);
 
-            displayOn = false;
+            result = undefined;
+
+            displayOn = undefined;
         }
 
         if(e.target.matches('.zero')){
@@ -146,9 +146,16 @@ btn01.forEach(button => {
 
         showTheNumbers(number);
 
-        listOfItems.push(number);
+        if(operator === undefined){
+            listA.push(number);
+        }
+        
+        if(operator !== undefined){
+            listB.push(number);
+        }
 
-        console.log(listOfItems);
+        console.log(listA);
+        console.log(listB);
         
     });
 });
@@ -158,6 +165,14 @@ const btn02 = document.querySelectorAll('.operators button');
 btn02.forEach(button => {
     
     button.addEventListener('click', (e) => {
+        if(operator !== undefined){
+            operate();
+
+            listB = [];
+
+            operator = undefined;
+        }
+        
         if(e.target.matches('.divide')){
             operator = '/';
         }
@@ -182,11 +197,13 @@ btn02.forEach(button => {
 
             result = undefined;
 
-            displayOn = false;
+            displayOn = undefined;
+            
+            listA = [];
 
-            listOfItems = [];
+            listB = [];
 
-            operator = false;
+            operator = undefined;
 
             const display = document.querySelector('.display');
 
@@ -199,24 +216,17 @@ btn02.forEach(button => {
         if(e.target.matches('.equals')){
             operate();
           
-            operator = false;
-        }
-
-        if(listOfItems.includes(operator)){            
-            operate();
-        }
-
-        if (operator !== false){
+            listA = [];
             
-            listOfItems.push(operator);
+            listB = [];
 
-            console.log(listOfItems);
+            operator = undefined;
+        }
 
-            if(displayOn !== true){
-                const display = document.querySelector('.display');
+        if(displayOn !== true){
+            const display = document.querySelector('.display');
 
-                empty(display);
-            } 
+            empty(display);
         }
 
     });
