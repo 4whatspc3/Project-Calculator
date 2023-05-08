@@ -1,19 +1,3 @@
-let add = (a, b) => {
-    return result = a + b;
-};
-
-let subtract = (a, b) => {
-    return result = a - b;
-};
-
-let multiply = (a, b) => {
-    return result = a * b;
-};
-
-let divide = (a, b) => {
-    return result = a / b;
-};
-
 let a,
     b,
     result,
@@ -23,6 +7,50 @@ let a,
     displayOn,
     args = [],
     listOfItems = [];
+
+let add = (a, b) => {
+    return a + b;
+};
+
+let subtract = (a, b) => {
+    return a - b;
+};
+
+let multiply = (a, b) => {
+    return a * b;
+};
+
+let divide = (a, b) => {
+    return a / b;
+};
+
+let getTheNumbers = (number) => {
+    
+    const display = document.querySelector('.display');
+
+    display.setAttribute('style', `display: flex;
+                                   margin:0;
+                                   padding: 0;`);
+
+    const content = document.createElement('div');
+  
+    content.textContent = `${number} `;
+
+    return display.appendChild(content);
+};
+
+let convertTheList = (listOfItems) => {
+    whereOperator = listOfItems.indexOf(operator);
+
+    return {
+        firstNumber : Number(listOfItems.slice(0, whereOperator).join('')),
+        secondNumber: Number(listOfItems.slice(whereOperator + 1, listOfItems.length).join('')),
+    };
+};
+
+function empty(element) {
+    element.replaceChildren(); 
+}
 
 let operate = () => {
     if(result !== undefined){
@@ -62,34 +90,6 @@ let operate = () => {
 
     return display;
 };
-
-let getTheNumbers = (number) => {
-    
-    const display = document.querySelector('.display');
-
-    display.setAttribute('style', `display: flex;
-                                   margin:0;
-                                   padding: 0;`);
-
-    const content = document.createElement('div');
-  
-    content.textContent = `${number} `;
-
-    return display.appendChild(content);
-};
-
-let convertTheList = (listOfItems) => {
-    whereOperator = listOfItems.indexOf(operator);
-
-    return {
-        firstNumber : Number(listOfItems.slice(0, whereOperator).join('')),
-        secondNumber: Number(listOfItems.slice(whereOperator + 1, listOfItems.length).join('')),
-    };
-};
-
-function empty(element) {
-    element.replaceChildren(); 
-}
 
 const btn01 = document.querySelectorAll('.numbers button');
 
@@ -158,11 +158,6 @@ const btn02 = document.querySelectorAll('.operators button');
 btn02.forEach(button => {
     
     button.addEventListener('click', (e) => {
-        
-        if(listOfItems.includes(operator)){            
-            operate();
-        } 
-
         if(e.target.matches('.divide')){
             operator = '/';
         }
@@ -203,7 +198,12 @@ btn02.forEach(button => {
 
         if(e.target.matches('.equals')){
             operate();
+          
             operator = false;
+        }
+
+        if(listOfItems.includes(operator)){            
+            operate();
         }
 
         if (operator !== false){
