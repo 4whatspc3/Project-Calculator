@@ -24,7 +24,7 @@ let divide = (a, b) => {
     return a / b;
 };
 
-let getTheNumbers = (number) => {
+let ShowTheNumbers = (number) => {
     
     const display = document.querySelector('.display');
 
@@ -144,7 +144,7 @@ btn01.forEach(button => {
             number = 9;
         }
 
-        getTheNumbers(number);
+        showTheNumbers(number);
 
         listOfItems.push(number);
 
