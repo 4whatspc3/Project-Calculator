@@ -106,6 +106,10 @@ btn01.forEach(button => {
             displayOn = undefined;
         }
 
+        if(e.target.matches('.point')){
+            number = ".";
+        }
+
         if(e.target.matches('.zero')){
             number = 0;
         }
@@ -149,10 +153,20 @@ btn01.forEach(button => {
         showTheNumbers(number);
 
         if(operator === undefined){
+            if(listA.includes(".")){
+                document.querySelector('.numbers .point').disabled = true;
+            }
+            
             listA.push(number);
         }
         
         if(operator !== undefined){
+            document.querySelector('.numbers .point').disabled = false;
+
+            if(listB.includes(".")){
+                document.querySelector('.numbers .point').disabled = true;
+            }
+            
             listB.push(number);
         }
 
