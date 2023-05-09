@@ -157,6 +157,8 @@ btn01.forEach(button => {
                 document.querySelector('.numbers .point').disabled = true;
             }
             
+            result = undefined;
+
             listA.push(number);
         }
         
@@ -170,8 +172,8 @@ btn01.forEach(button => {
             listB.push(number);
         }
 
-        console.log(listA);
-        console.log(listB);
+        console.log("essa é A "+listA);
+        console.log("essa é B "+listB);
         
     });
 });
