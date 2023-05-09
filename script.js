@@ -73,7 +73,11 @@ let operate = () => {
     }
 
     if (operator === '/'){
-        result = divide(a, b);
+        if(b === 0){
+            result = "NO U =)";
+        } else {
+            result = divide(a, b);
+        }
     }
 
     displayOn = true;
