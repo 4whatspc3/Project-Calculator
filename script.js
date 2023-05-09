@@ -99,8 +99,6 @@ btn01.forEach(button => {
 
             empty(display);
 
-            result = undefined;
-
             displayOn = undefined;
         }
 
@@ -214,13 +212,23 @@ btn02.forEach(button => {
         }
 
         if(e.target.matches('.equals')){
-            operate();
-          
-            listA = [];
-            
-            listB = [];
+            if (listA.length === 0 && listB.length === 0){
+                
+                if(result === undefined){
+                    const display = document.querySelector('.display');
 
-            operator = undefined;
+                    empty(display);
+                }
+                
+            } else {
+                operate();
+          
+                listA = [];
+                
+                listB = [];
+
+                operator = undefined;
+            }
         }
 
         if(displayOn !== true){
@@ -228,6 +236,8 @@ btn02.forEach(button => {
 
             empty(display);
         }
+
+        console.log(operator)
 
     });
 });
