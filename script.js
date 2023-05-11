@@ -107,7 +107,7 @@ btn01.forEach(button => {
         }
 
         if(e.target.matches('.point')){
-            number = ".";
+            number = '.';
         }
 
         if(e.target.matches('.zero')){
@@ -152,24 +152,24 @@ btn01.forEach(button => {
 
         showTheNumbers(number);
 
-        if(operator === undefined){
-            if(listA.includes(".")){
-                document.querySelector('.numbers .point').disabled = true;
-            }
-            
+        if(operator === undefined){            
             result = undefined;
 
             listA.push(number);
+
+            if(listA.includes('.')){
+                document.querySelector('.numbers .point').disabled = true;
+            }
         }
         
         if(operator !== undefined){
             document.querySelector('.numbers .point').disabled = false;
-
-            if(listB.includes(".")){
-                document.querySelector('.numbers .point').disabled = true;
-            }
             
             listB.push(number);
+
+            if(listB.includes('.')){
+                document.querySelector('.numbers .point').disabled = true;
+            }
         }
 
         console.log("essa é A "+listA);
@@ -190,7 +190,7 @@ btn02.forEach(button => {
 
             operator = undefined;
         }
-        
+
         if(e.target.matches('.divide')){
             operator = '/';
         }
@@ -207,36 +207,62 @@ btn02.forEach(button => {
             operator = '+';
         }
 
-        if(e.target.matches('.AC')){
-            //clear all
-            a = undefined;
-
-            b = undefined;
-
-            result = undefined;
-
-            displayOn = undefined;
-            
-            listA = [];
-
-            listB = [];
-
-            operator = undefined;
-
+        if(displayOn !== true){
             const display = document.querySelector('.display');
 
             empty(display);
-
-            console.log("clear all")
-
         }
 
+        console.log(operator)
+
+    });
+});
+
+const btn03 = document.querySelectorAll('.moreTools button');
+
+btn03.forEach(button => {
+    
+    button.addEventListener('click', (e) => {        
+        if(e.target.matches('.backspace')){
+            if(operator === undefined){
+                listA.pop();
+            } else {
+                listB.pop();
+            }
+        }
+    
+        if(e.target.matches('.AC')){
+            //clear all
+            a = undefined;
+    
+            b = undefined;
+    
+            result = undefined;
+    
+            displayOn = undefined;
+            
+            listA = [];
+    
+            listB = [];
+    
+            operator = undefined;
+
+            document.querySelector('.numbers .point').disabled = false;
+    
+            const display = document.querySelector('.display');
+    
+            empty(display);
+    
+            console.log("clear all")
+    
+        }
+    
         if(e.target.matches('.equals')){
             if (listA.length === 0 && listB.length === 0){
                 
                 if(result === undefined){
                     const display = document.querySelector('.display');
-
+    
                     empty(display);
                 }
                 
@@ -246,18 +272,11 @@ btn02.forEach(button => {
                 listA = [];
                 
                 listB = [];
-
+    
                 operator = undefined;
+
+                document.querySelector('.numbers .point').disabled = false;
             }
         }
-
-        if(displayOn !== true){
-            const display = document.querySelector('.display');
-
-            empty(display);
-        }
-
-        console.log(operator)
-
     });
 });
