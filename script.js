@@ -4,7 +4,7 @@ let a,
     operator,
     number,
     displayOn,
-    args = [],
+    listOfNumbers = [],
     listA = [],
     listB = [];
 
@@ -37,6 +37,23 @@ let showTheNumbers = (number) => {
     content.textContent = `${number} `;
 
     return display.appendChild(content);
+};
+
+let undoTheNumbers = (listOfNumbers) => {
+    
+    const display = document.querySelector('.display');
+
+    display.setAttribute('style', `display: flex;
+                                   margin:0;
+                                   padding: 0;`);
+    
+    if(listOfNumbers === 0){
+        display.textContent =``;
+    } else {
+        display.textContent = `${listOfNumbers} `;
+    }
+
+    return display;
 };
 
 let numberA = (listA) => {
@@ -226,8 +243,16 @@ btn03.forEach(button => {
         if(e.target.matches('.backspace')){
             if(operator === undefined){
                 listA.pop();
+
+                listOfNumbers = numberA(listA);
+
+                undoTheNumbers(listOfNumbers);
             } else {
                 listB.pop();
+
+                listOfNumbers = numberB(listB);
+
+                undoTheNumbers(listOfNumbers);
             }
         }
     
