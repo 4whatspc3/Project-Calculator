@@ -19,9 +19,10 @@ body {
 }
 
 .display {
+    height: 22px;
     flex: 1 1 auto;
-    border: 5px solid gray;
-    padding: 20px;
+    border: 2px solid gray;
+    overflow: auto;
 }
 
 .buttons {
@@ -32,18 +33,11 @@ body {
 
 .core {
     display: flex;
-}
-
-.numbers {
-    width: 150px;
-    display: flex;
-    flex-wrap: wrap;
     gap: 5px;
 }
 
-.operators {
+.moreTools {
     display: flex;
-    flex-direction: column;
     gap: 5px;
 }
 
@@ -63,7 +57,28 @@ body {
     flex: 1 1 auto;
 }
 
-.moreTools {
+.numbers {
+    width: 150px;
     display: flex;
+    flex-wrap: wrap;
     gap: 5px;
+}
+
+.numbers button{
+    flex: 1 1 auto;
+}
+
+.operators {
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.operators button {
+    flex: 1 1 auto;
+}
+
+.equals {
+    height: 58px;
 }
