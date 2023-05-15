@@ -48,7 +48,7 @@ body {
 }
 
 .core button,
-.moreTools button{
+.moreTools button {
     background-color: gray;
     border: none;
     color: white;
@@ -60,4 +60,10 @@ body {
 
 .moreTools button {
     background-color: black;
+    flex: 1 1 auto;
+}
+
+.moreTools {
+    display: flex;
+    gap: 5px;
 }

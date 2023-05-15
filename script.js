@@ -224,6 +224,28 @@ btn02.forEach(button => {
             operator = '+';
         }
 
+        if(e.target.matches('.equals')){
+            if (listA.length === 0 && listB.length === 0){
+                
+                if(result === undefined){
+                    const display = document.querySelector('.display');
+    
+                    empty(display);
+                }
+                
+            } else {
+                operate();
+          
+                listA = [];
+                
+                listB = [];
+    
+                operator = undefined;
+
+                document.querySelector('.numbers .point').disabled = false;
+            }
+        }
+
         if(displayOn !== true){
             const display = document.querySelector('.display');
 
@@ -280,28 +302,6 @@ btn03.forEach(button => {
     
             console.log("clear all")
     
-        }
-    
-        if(e.target.matches('.equals')){
-            if (listA.length === 0 && listB.length === 0){
-                
-                if(result === undefined){
-                    const display = document.querySelector('.display');
-    
-                    empty(display);
-                }
-                
-            } else {
-                operate();
-          
-                listA = [];
-                
-                listB = [];
-    
-                operator = undefined;
-
-                document.querySelector('.numbers .point').disabled = false;
-            }
         }
     });
 });
