@@ -4,12 +4,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 50px;
 }
 
 .container {
-    width: 200px;
+    height: 550px;
+    width: 400px;
     padding: 10px;
     margin: 0;
     display: flex;
@@ -22,20 +21,25 @@ body {
 
 .display {
     background-color: #E9E1EF;
-    height: 22px;
-    flex: 1 1 auto;
+    height: 92px;
+    flex: 0 0 auto;
     border: 2px solid #662D91;
+    border-radius: 8px;
     overflow: auto;
 }
 
 .buttons {
+    height: 400px;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
 .core {
+    width: 400px;
+    height: 400px;
     display: flex;
+    justify-content: space-between;
     gap: 5px;
 }
 
@@ -54,6 +58,7 @@ body {
     text-align: center;
     text-decoration: none;
     font-size: 16px;
+    font-weight: 500;
     transition-duration: 0.4s;
 }
 
@@ -63,6 +68,7 @@ body {
 }
 
 .moreTools button {
+    height: 70px;
     background-color: #84C890;
     flex: 1 1 auto;
 }
@@ -73,18 +79,19 @@ body {
 }
 
 .numbers {
-    width: 150px;
+    width: 315px;
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
 }
 
 .numbers button{
+    width: 100px;
     flex: 1 1 auto;
 }
 
 .operators {
-    width: 50px;
+    width: 85px;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -96,7 +103,7 @@ body {
 
 .operators .equals {
     background-color: #FA9F57;
-    height: 58px;
+    height: 65px;
 }
 
 .operators .equals:hover{
