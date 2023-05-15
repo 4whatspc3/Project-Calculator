@@ -15,13 +15,16 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: aqua;
+    background-color: #AB84C8;
+    border: 2px solid #662D91;
+    border-radius: 8px;
 }
 
 .display {
+    background-color: #E9E1EF;
     height: 22px;
     flex: 1 1 auto;
-    border: 2px solid gray;
+    border: 2px solid #662D91;
     overflow: auto;
 }
 
@@ -43,18 +46,30 @@ body {
 
 .core button,
 .moreTools button {
-    background-color: gray;
+    background-color: #2D913E;
     border: none;
+    border-radius: 8px;
     color: white;
     padding: 10px 15px;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
+    transition-duration: 0.4s;
+}
+
+.core button:hover{
+    background-color: #84C890;
+    color:white;
 }
 
 .moreTools button {
-    background-color: black;
+    background-color: #84C890;
     flex: 1 1 auto;
+}
+
+.moreTools button:hover {
+    background-color: #2D913E;
+    color: white;
 }
 
 .numbers {
@@ -79,6 +94,13 @@ body {
     flex: 1 1 auto;
 }
 
-.equals {
+.operators .equals {
+    background-color: #FA9F57;
     height: 58px;
+}
+
+.operators .equals:hover{
+    background-color: #FA9F57;
+    filter: brightness(0.8);
+    color:white;
 }
