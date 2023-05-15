@@ -30,9 +30,15 @@ let showTheNumbers = (number) => {
 
     display.setAttribute('style', `display: flex;
                                    margin:0;
-                                   padding: 0;`);
+                                   padding: 0 10px;`);
 
     const content = document.createElement('div');
+
+    content.setAttribute('style', `display: flex;
+                                            align-items: center;
+                                            margin: 0;
+                                            padding: 0;
+                                            font-size: 30px;`);
   
     content.textContent = `${number} `;
 
@@ -45,7 +51,9 @@ let undoTheNumbers = (listOfNumbers) => {
 
     display.setAttribute('style', `display: flex;
                                    margin:0;
-                                   padding: 0;`);
+                                   padding: 0 10px;
+                                   align-items: center;
+                                   font-size: 30px;`);
     
     if(listOfNumbers === 0){
         display.textContent =``;
@@ -103,7 +111,9 @@ let operate = () => {
 
     display.setAttribute('style', `display: flex;
                                    margin:0;
-                                   padding: 0;`);
+                                   padding: 0 10px;
+                                   align-items: center;
+                                   font-size: 30px;`);
 
     display.textContent = `${result} `;
 
